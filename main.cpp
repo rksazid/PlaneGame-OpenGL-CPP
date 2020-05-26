@@ -49,7 +49,7 @@ static void resize(int width, int height)
     glLoadIdentity();
 }
 
-void drawShohidMinar(){
+void gbrTower(){
 
     glColor3d(0.4,0.2,0.2);
 	glPushMatrix();
@@ -175,7 +175,7 @@ void drawShohidMinar(){
         glutSolidCube(1);
     glPopMatrix();
 
-    /// Uporer piller
+    /// Pill atas
 
     glPushMatrix();
         glTranslated(0,0.743,-1.424);
@@ -282,7 +282,7 @@ void drawShohidMinar(){
     glPopMatrix();
 
 
-    /// pasher piller left 1
+    /// pill sisi kiri 1
     glColor3d(1,1,1);
     glPushMatrix();
         glTranslated(0.1,0,-0.4);
@@ -361,7 +361,7 @@ void drawShohidMinar(){
             glColor3d(1,1,1);
     glPopMatrix();
 
-    /// pasher piller left 2
+    /// pill sisi kiri left 2
     glPushMatrix();
         glTranslated(0.65,0,0.3);
         glRotated(-45,0,1,0);
@@ -440,10 +440,10 @@ void drawShohidMinar(){
     glPopMatrix();
 
 
-    ///Choto pillers
+    ///Pillar kecil
 
     glPushMatrix();
-        /// pasher piller left 1
+        /// pill sisi kiri 1
         glTranslated(0.06,0,0.14);
         glPushMatrix();
 
@@ -516,7 +516,7 @@ void drawShohidMinar(){
 
         glPopMatrix();
 
-        /// pasher piller left 2
+        /// pill sisi kiri 2
         glPushMatrix();
             glTranslated(0.83,0,0.39);
             glRotated(-45,0,1,0);
@@ -755,7 +755,7 @@ void plane(){
         glPopMatrix();
     glPopMatrix();
 
-    /// Pesoner Uporer pakha
+    /// Sisi atas
     glColor3d(0.8,1,0);
     glPushMatrix();
         glTranslated(-2.7,0.5,0);
@@ -831,7 +831,7 @@ void house(int n,int R,int G){
     }
 }
 
-void soheedMinarEnv(){
+void TowerEnv(){
     /// Ground
     glColor3d(0,0.5,0.1);
     glPushMatrix();
@@ -845,7 +845,7 @@ void soheedMinarEnv(){
         glRotated(65,0,1,0);
         //glRotated(15,0,1,0);
         glScaled(2,2,2);
-        drawShohidMinar();
+        gbrTower();
     glPopMatrix();
 
     glPushMatrix();
@@ -853,7 +853,7 @@ void soheedMinarEnv(){
         glRotated(-65,0,1,0);
         //glRotated(15,0,1,0);
         glScaled(2,2,2);
-        drawShohidMinar();
+        gbrTower();
     glPopMatrix();
 }
 
@@ -943,7 +943,7 @@ void draw(){
 
     glPushMatrix();
         glTranslated(tX,tY,tZ1);
-        soheedMinarEnv();
+        TowerEnv();
     glPopMatrix();
 
     glPushMatrix();
@@ -1067,7 +1067,7 @@ static void display(void)
                 0, 4, 0,
                 0, 1.0f, 0.0f);
 
-    if(START){
+    if(1){
 
         glPushMatrix();
             glTranslated(0,0,0);
@@ -1076,14 +1076,10 @@ static void display(void)
             draw();
         glPopMatrix();
 
-        drawStrokeText("UP: W, DOWN: S, LEFT: A, RIGHT: D, MAIN MENU: M",-8,0.9,0);
-        drawStrokeText("TIME : ",3,0,0);
+        drawStrokeText2("UP: W, DOWN: S, LEFT: A, RIGHT: D",-8,0.9,0);
+
         int mod,number=0;
-        while(TIME){
-            mod=TIME%10;
-            number=number*10+mod;
-            TIME/=10;
-        }
+
         float tmp=0;
         while(number){
             mod=number%10;
@@ -1092,18 +1088,18 @@ static void display(void)
             tmp+=0.2;
         }
     }
-    else{
-
-        glPushMatrix();
-            glTranslated(0,3,0);
-            glRotated(aa,0,1,0);
-            glScaled(1.5,1.5,1.5);
-            plane();
-        glPopMatrix();
-
-        drawStrokeText("Press G to Start",-1,-1,0);
-        drawStrokeText2("Plane Game",-2,0,0);
-    }
+//    else{
+//
+//        glPushMatrix();
+//            glTranslated(0,3,0);
+//            glRotated(aa,0,1,0);
+//            glScaled(1.5,1.5,1.5);
+//            plane();
+//        glPopMatrix();
+//
+//        drawStrokeText("Press G to Start",-1,-1,0);
+//        drawStrokeText2("Plane Game",-2,0,0);
+//    }
 
     //glColor3d(1,1,0);
 	//drawStrokeText("Osama Hosam's OpenGL Tutorials",200,200,0);
@@ -1221,7 +1217,7 @@ int main(int argc, char *argv[])
 	glutInitWindowSize(1366,720);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
 
-    glutCreateWindow("GLUT Shapes");
+    glutCreateWindow("Pesawat 3D Terbang Mengangkasa | Bernardinus Hendra - Hilmi Yogantama");
 
     glutReshapeFunc(resize);
     glutDisplayFunc(display);
